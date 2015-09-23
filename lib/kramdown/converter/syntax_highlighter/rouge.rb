@@ -27,6 +27,7 @@ module Kramdown::Converter::SyntaxHighlighter
       return nil unless lexer
 
       opts[:wrap] = false if type == :span
+      opts[:line_numbers] = false if type == :span
 
       formatter = (opts.delete(:formatter) || ::Rouge::Formatters::HTML).new(opts)
       formatter.format(lexer.lex(text))
